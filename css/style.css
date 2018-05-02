@@ -1515,22 +1515,22 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .btn-primary {
-  background: #d1c286;
+  background:#0c2b56;
   color: #fff;
-  border: 2px solid #d1c286;
+  border: 2px solid #0c2b56;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #d8cb98 !important;
-  border-color: #d8cb98 !important;
+  background: #0c2b56 !important;
+  border-color: #0c2b56 !important;
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color: #d1c286;
-  border: 2px solid #d1c286;
+  color: #0c2b56;
+  border: 2px solid #0c2b56;
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #d1c286;
-  color: #fff;
+  background: #0c2b56;
+  color: #0c2b56;
 }
 
 .btn-success {
