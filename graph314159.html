@@ -170,55 +170,7 @@
         chart.draw(data, options);
     }
 	    
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
       
-     function drawChart() {
-      	var interest = document.getElementById("interest").value;
-        var amount = document.getElementById("amount").value;
-        var period = document.getElementById("period").value;
-        var intper = interest/1200
-        var permonths = period*12
-        var total = amount*permonths*intper*Math.pow((1+intper),permonths)*(1/(Math.pow((1+intper),permonths)-1))
-        
-        //*((1+intper)^permonths)*(1/(((1+intper)^permonths)-1)))
-        var intpaid = (total-amount)
-        var pledgeint = 0
-        var amountnew = parseInt(amount)
-        var intpaidnew = parseInt(intpaid)
-        var data = google.visualization.arrayToDataTable([
-          ['Type', 'Amount', 'Interest'],
-          ['Loan', amountnew, intpaidnew],
-          ['Pledge', amountnew, pledgeint],
-         ]);
-				
-        var options = {
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          },
-          bars: 'vertical',
-          vAxis: {format: 'decimal'},
-          height: 400,
-          isStacked: true,
-          colors: ['#1b9e77', '#d95f02', '#7570b3']
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('chart_div'));
-				
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-				document.getElementById("demo").innerHTML = interest;
-        document.getElementById("mon").innerHTML = amount;
-        document.getElementById("per").innerHTML = period;
-        var btns = document.getElementById('btn-group');
-        btns.onclick = function (e) {
-
-          if (e.target.tagName === 'BUTTON') {
-            options.vAxis.format = e.target.id === 'none' ? '' : e.target.id;
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-          }
-        }
-      }
     </script>
 
 
@@ -362,47 +314,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="about-content">
-            <div class="row animate-box">
-              <div class="desc">
-                <p>Use the Slider Below to Adjust the Interest Rate.</p>
-                <div class="lifecontainer">
-                  <input type="range" min="1" max="99.5" value="6" class="slider" id="interest" onchange="drawChart()">
-                  <p>Value: <span id="demo"></span>% Interest</p>
-                </div>
-                
-              </div>
-            </div>
-            </div>
-       
-<div class="about-content2">
-            <div class="row animate-box2">
-              <div class="desc2">
-                <p>Use the Slider Below to Adjust the Grant Amount.</p>
-                <div class="amountcontainer">
-                  <input type="range" min="1" max="15000" value="10000" class="slider" id="amount" onchange="drawChart()">
-                  <p>Value: <span id="mon"></span> Dollars</p>
-                </div>
-                
-              </div>
-            </div>
-            </div>
-            
-<div class="about-content3">
-            <div class="row animate-box3">
-              <div class="desc3">
-                <p>Use the Slider Below to Adjust the Time Period.</p>
-                <div class="percontainer">
-                  <input type="range" min="1" max="40" value="10" class="slider" id="period" onchange="drawChart()">
-                  <p>Value: <span id="per"></span> Years</p>
-                </div>
-                
-              </div>
-            </div>
-            </div>
-            
-       <div id="chart_div"></div>
-	</div>
+		
 
 	<div id="fh5co-started">
 		<div class="container">
