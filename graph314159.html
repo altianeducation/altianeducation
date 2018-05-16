@@ -53,11 +53,9 @@
     <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-
     ///////////////////////////////////////////////
     //What is the Time Horizon to Replenish Fund?//
     ///////////////////////////////////////////////
-
      function finance(pledgerate, forever, paybackpd){
         var principalc = 1500000;
         var principali = 10000;
@@ -128,7 +126,6 @@
         }
         return total
       }
-
     function drawChart() {
         var z;
         var x = document.getElementById("liferate").value;
@@ -167,14 +164,11 @@
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
         chart.draw(data, options);
     }
-
     ////////////////////////////
     //Individual to Pay Back?//
     ///////////////////////////
-
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart1);
-
     function drawChart1() {
     var interest = document.getElementById("interest").value;
     var amount = document.getElementById("amount").value;
@@ -182,7 +176,6 @@
     var intper = interest/1200;
     var permonths = period*12;
     var total = amount*permonths*intper*Math.pow((1+intper),permonths)*(1/(Math.pow((1+intper),permonths)-1))
-
     //*((1+intper)^permonths)*(1/(((1+intper)^permonths)-1)))
     var intpaid = (total-amount);
     var pledgeint = 0;
@@ -193,11 +186,9 @@
       ['Loan', amountnew, intpaidnew],
       ['Pledge', amountnew, pledgeint]
      ]);
-
     var options = {
       chart: {
-        title: 'Pledge 
-	      with Traditional Loans'
+        title: 'Pledge Comparison with Traditional Loans'
       },
       bars: 'vertical',
       vAxis: {format: 'decimal'},
@@ -205,16 +196,13 @@
       isStacked: true,
       colors: ['#1b9e77', '#d95f02', '#7570b3']
     };
-
     var chart = new google.charts.Bar(document.getElementById('chart_div'));
-
     chart.draw(data, google.charts.Bar.convertOptions(options));
     document.getElementById("demo1").innerHTML = interest;
     document.getElementById("mon").innerHTML = amount;
     document.getElementById("per").innerHTML = period;
     var btns = document.getElementById('btn-group');
     btns.onclick = function (e) {
-
       if (e.target.tagName === 'BUTTON') {
         options.vAxis.format = e.target.id === 'none' ? '' : e.target.id;
         chart.draw(data, google.charts.Bar.convertOptions(options));
@@ -268,7 +256,7 @@
 		<div class="container" id="cpnabout">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Single Cohort Fund Replenishment</h2>
+					<h2>What is the Time Horizon to Replenish Fund?</h2>
 				</div>
 			</div>
 			<div class="about-content">
@@ -290,7 +278,7 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Standard Loan vs. Pledge Comparison</h2>
+					<h2>What is the Time Horizon to Replenish Fund?!!!</h2>
 				</div>
 			</div>
             <div class="about-content1">
