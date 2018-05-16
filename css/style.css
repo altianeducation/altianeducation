@@ -1709,14 +1709,14 @@ h1, h2, h3, h4, h5, h6, figure {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: #002060;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: #002060;
     cursor: pointer;
 }
 
