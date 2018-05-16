@@ -50,7 +50,7 @@
 	<![endif]-->
 
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script>
+    <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -208,7 +208,7 @@
     var chart = new google.charts.Bar(document.getElementById('chart_div'));
 
     chart.draw(data, google.charts.Bar.convertOptions(options));
-            document.getElementById("demo").innerHTML = interest;
+    document.getElementById("demo1").innerHTML = interest;
     document.getElementById("mon").innerHTML = amount;
     document.getElementById("per").innerHTML = period;
     var btns = document.getElementById('btn-group');
@@ -292,15 +292,14 @@
 					<h2>What is the Time Horizon to Replenish Fund?!!!</h2>
 				</div>
 			</div>
-            <div class="about-content">
+            <div class="about-content1">
                 <div class="row animate-box">
                   <div class="desc">
                     <p>Use the Slider Below to Adjust the Interest Rate.</p>
                     <div class="lifecontainer">
                       <input type="range" min="1" max="99.5" value="6" class="slider" id="interest" onchange="drawChart1()">
-                      <p>Value: <span id="demo"></span>% Interest</p>
+                      <p>Value: <span id="demo1"></span>% Interest</p>
                     </div>
-
                   </div>
                 </div>
             </div>
@@ -312,7 +311,6 @@
                       <input type="range" min="1" max="15000" value="10000" class="slider" id="amount" onchange="drawChart1()">
                       <p>Value: <span id="mon"></span> Dollars</p>
                     </div>
-
                   </div>
                 </div>
             </div>
