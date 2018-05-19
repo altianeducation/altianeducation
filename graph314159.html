@@ -209,6 +209,130 @@
       }
     }
     }
+
+    //////////////////////////////
+    //Modeling Total Fund Amount//
+    //////////////////////////////
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart2);
+
+      function finance2(incohortsz, grantamtperstd, progrmalumcontrib, prcntcontrib10, prcntcontrib10post, anncohortgrwth, annalumcontrib, annuunivcontrib, maxpopsz) {
+
+      	//var incohortsz = 100;
+        var alumnicontribution = "Yes";
+        var univfundpost3yr = "No";
+        //var grantamtperstd = 10000.00;
+        //var progrmalumcontrib = 100.00;
+        //var prcntcontrib10 = 0.8;
+        //var prcntcontrib10post = 0.2;
+        //var anncohortgrwth = 0.12;
+        //var annalumcontrib = 1500000.00;
+        //var annuunivcontrib = 1000000.00;
+        var infl = "No";
+        //var maxpopsz = 5000;
+        var netbal = 0;
+
+        var cohort = {1: 2, 2: 3};
+        for (z = 1; z < 624; z++) {
+          if (z == 1) {
+            f = incohortsz;
+          }
+          else{
+            if (f*(1+anncohortgrwth) < maxpopsz) {
+              f = f*(1+anncohortgrwth);
+            }
+            else {
+              f = maxpopsz;
+            }
+          }
+          cohort[z] = f
+        }
+
+
+        var fulltable = [["test","Current Fund Value"]];
+        for (x = 1; x < 601; x++) {
+          var b = x;
+          var c = 0;
+          var d = 0;
+          var e = 0;
+          var g = 0;
+					var netmonbal = 0;
+          if (x == 1 || (x-1) % 12 === 0) {
+              c = annuunivcontrib;
+              d = annalumcontrib;
+          }
+          if ((x-9) % 12 === 0){
+            	e = -grantamtperstd*cohort[Math.ceil(x/12)];
+        	}
+          for (t = 1; t < 51; t++){
+              if (x >= 10 + 12*(t-1) && x <= 129 + 12*(t-1)){
+                  g = g + progrmalumcontrib*prcntcontrib10*cohort[t];
+              }
+              else if (x > 129 + 12*(t-1)){
+                  g = g + progrmalumcontrib*prcntcontrib10post*cohort[t];
+              }
+					}
+
+          netmonbal = c + d + e + g;
+          netbal = netbal + netmonbal;
+          //fulltable.push([b, c, d, e, netmonbal, netbal]);
+          fulltable.push([b, netbal]);
+          }
+        return fulltable
+        }
+
+    function drawChart2() {
+        var z;
+        var x1 = document.getElementById("liferate1").value;
+        var x2 = document.getElementById("liferate2").value;
+        var x3 = document.getElementById("liferate3").value;
+        var x4 = document.getElementById("liferate4").value;
+        var x5 = document.getElementById("liferate5").value;
+        var x6 = document.getElementById("liferate6").value;
+        var x7 = document.getElementById("liferate7").value;
+        var x8 = document.getElementById("liferate8").value;
+        var x9 = document.getElementById("liferate9").value;
+
+        var arr1 = finance2(x1,x2,x3,x4/100,x5/100,x6/100,parseInt(x7),parseInt(x8),x9);
+
+        //var arr1 = finance2(x1,x2,x3,x4/100,x5/100,x6/100,x7,x8,x9);
+        //var arr1 = [["% of Cohort Pledging","Years until Fund Replenished"], [1,2],[2,3],[3,4],[1,2]];
+        //Slider  Value
+        document.getElementById("demo3").innerHTML = x1;
+        document.getElementById("demo4").innerHTML = x2;
+        document.getElementById("demo5").innerHTML = x3;
+        document.getElementById("demo6").innerHTML = x4;
+        document.getElementById("demo7").innerHTML = x5;
+        document.getElementById("demo8").innerHTML = x6;
+        document.getElementById("demo9").innerHTML = x7;
+        document.getElementById("demo10").innerHTML = x8;
+        document.getElementById("demo11").innerHTML = x9;
+
+        var data = google.visualization.arrayToDataTable(arr1);
+        var options = {
+        title: 'Tracking Pledge Fund Sustainability',
+        titlePosition: 'center',
+        curveType: 'function',
+        legend: { position: 'none' },
+        vAxes: {
+        // Adds titles to each axis.
+        0: {title: 'Fund Value ($)',
+
+        }
+        },
+        hAxes: {
+        // Adds titles to each axis.
+        0: {title: 'Months',
+
+        }
+        },
+         lineWidth: 3
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
+        chart.draw(data, options);
+    }
+
     </script>
 
 	</head>
@@ -316,6 +440,51 @@
                 </div>
             </div>
             <div class="center" id="chart_div"></div>
+		</div>
+
+	<div id="fh5co-about">
+		<div class="container" id="cpnabout">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>What is the Time Horizon to Replenish Fund?</h2>
+				</div>
+			</div>
+			<div class="about-content">
+				<div class="row animate-box">
+					<div class="desc">
+					    <div class="lifecontainer">
+                          <p>Initial Cohort Size</p>
+					      <input type="range" min="1" max="100" value="100" class="slider" id="liferate1" onchange="drawChart2()">
+					      <p>Value: <span id="demo3"></span> People in Cohort</p>
+                          <p>Grant Size</p>
+					      <input type="range" min="1" max="20000" value="10000" class="slider" id="liferate2" onchange="drawChart2()">
+					      <p>Value: <span id="demo4"></span> % of Cohort</p>
+                          <p>Program Alumni Contribution Per Month</p>
+ 					      <input type="range" min="1" max="100" value="300" class="slider" id="liferate3" onchange="drawChart2()">
+					      <p>Value: <span id="demo5"></span> % of Cohort</p>
+                           <p>% of Cohort that Contribute, 10 year return</p>
+					      <input type="range" min="1" max="100" value="80" class="slider" id="liferate4" onchange="drawChart2()">
+					      <p>Value: <span id="demo6"></span> People in Cohort</p>
+                           <p>% of Cohort that Contribute, post-10 year return</p>
+					      <input type="range" min="1" max="100" value="20" class="slider" id="liferate5" onchange="drawChart2()">
+					      <p>Value: <span id="demo7"></span> People in Cohort</p>
+                          <p>Annual Cohort Growth</p>
+					      <input type="range" min="1" max="100" value="12" class="slider" id="liferate6" onchange="drawChart2()">
+					      <p>Value: <span id="demo8"></span> % Growth</p>
+                          <p>Annual Alumni Contribution</p>
+					      <input type="range" min="0" max="10000000" value="1500000" class="slider" id="liferate7" onchange="drawChart2()">
+					      <p>Value: <span id="demo9"></span> Dollars</p>
+                          <p>Annual University Contribution</p>
+					      <input type="range" min="500000" max="10000000" value="1000000" class="slider" id="liferate8" onchange="drawChart2()">
+					      <p>Value: <span id="demo10"></span> Dollars</p>
+                          <p>Max Population Size</p>
+					      <input type="range" min="100" max="10000" value="5000" class="slider" id="liferate9" onchange="drawChart2()">
+					      <p>Value: <span id="demo11"></span> People</p>
+					    </div>
+					    <div class="center" id="curve_chart3" style="width: 900px; height: 500px"></div>
+					</div>
+				</div>
+			</div>
 		</div>
     </div>
 
