@@ -53,7 +53,8 @@
     <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-	    
+    var output = document.getElementById("pledgerateo");
+	output.innerHTML = slider.value;
 	slider.oninput = function() {
   	output.innerHTML = this.value;
 	}
