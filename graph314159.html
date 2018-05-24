@@ -53,11 +53,7 @@
     <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-    var output = document.getElementById("pledgerateo");
-	output.innerHTML = slider.value;
-	slider.oninput = function() {
-  	output.innerHTML = this.value;
-	}
+   
 
     ///////////////////////////////////////////////
     //What is the Time Horizon to Replenish Fund?//
@@ -135,7 +131,7 @@
     function drawChart() {
         var z;
         var x = document.getElementById("liferate").value;
-        var arr1 = [["% of Cohort Pledging","Years until Fund Replenished"]];
+	var arr1 = [["% of Cohort Pledging","Years until Fund Replenished"]];
         for (z = 0; z <= 100; z++) {
         arr1.push([z, finance(z/100,x/100,120)/12])
         }
