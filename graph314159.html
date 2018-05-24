@@ -53,6 +53,11 @@
     <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
+	    
+	slider.oninput = function() {
+  	output.innerHTML = this.value;
+	}
+
     ///////////////////////////////////////////////
     //What is the Time Horizon to Replenish Fund?//
     ///////////////////////////////////////////////
