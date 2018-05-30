@@ -1763,4 +1763,10 @@ h1, h2, h3, h4, h5, h6, figure {
     height: auto;
 }
 
+.columnnew {
+    float: left;
+    width: 46%;
+    padding: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */
