@@ -1756,9 +1756,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    float: right;
     width: 50%;
     height: auto;
 }
