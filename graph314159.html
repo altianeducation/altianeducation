@@ -312,6 +312,7 @@
         document.getElementById("demo11").innerHTML = x9;
 
         var data = google.visualization.arrayToDataTable(arr1);
+        var data2 = google.visualization.arrayToDataTable(arr1);
         var options = {
         title: 'Tracking Pledge Fund Sustainability 50 Year',
         titlePosition: 'center',
@@ -362,7 +363,7 @@
         };
 	    
 	var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart4'));
-        chart.draw(data, options2);
+        chart2.draw(data2, options2);
     }
 
     </script>
