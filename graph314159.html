@@ -313,7 +313,31 @@
 
         var data = google.visualization.arrayToDataTable(arr1);
         var options = {
-        title: 'Tracking Pledge Fund Sustainability',
+        title: 'Tracking Pledge Fund Sustainability 50 Year',
+        titlePosition: 'center',
+        curveType: 'function',
+        legend: { position: 'none' },
+        vAxes: {
+        // Adds titles to each axis.
+        0: {title: 'Fund Value ($)',
+
+        }
+        },
+        hAxes: {
+        // Adds titles to each axis.
+		
+        0: {title: 'Months', 
+
+        }
+	
+        },
+         lineWidth: 3
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
+        chart.draw(data, options);
+	
+	var options2 = {
+        title: 'Tracking Pledge Fund Sustainability 10 Year',
         titlePosition: 'center',
         curveType: 'function',
         legend: { position: 'none' },
@@ -329,14 +353,16 @@
         0: {title: 'Months', viewWindow: {
 	max: 120
 	 }
+	   
 
         }
 	
         },
          lineWidth: 3
         };
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
-        chart.draw(data, options);
+	    
+	var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart4'));
+        chart2.draw(data, options2);
     }
 
     </script>
@@ -516,7 +542,9 @@
 					      <p>Value: <span id="demo11"></span> People</p>
 					    </div>
 					</div>
-					    <div class="center" id="curve_chart3" style="width: 900px; height: 500px"></div>
+					    <div class="center" id="curve_chart3"></div>
+					    <div class="center2" id="curve_chart4"></div>
+
 					
 			</div>
 			
