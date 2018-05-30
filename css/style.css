@@ -1770,7 +1770,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .columnnew2 {
-    margin: auto;
+    align-content: center;
     float: left;
     width: 50%;
     padding: 10px;
