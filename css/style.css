@@ -1758,7 +1758,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .center {
     float: right;
     width: 50%;
-    height: 50%;
+    height: auto;
 }
 
 .center0 {
@@ -1773,7 +1773,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .center2 {
     float: left;
     width: 50%;
-    height: 50%;
+    height: auto;
 }
 .columnnew {
     float: left;
