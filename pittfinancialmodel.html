@@ -59,8 +59,8 @@
     //What is the Time Horizon to Replenish Fund?//
     ///////////////////////////////////////////////
      function finance(pledgerate, forever, paybackpd){
-        var principalc = 1500000;
-        var principali = 10000;
+        var principalc = 750000;
+        var principali = 5000;
         var monthlysharedincome = 0.02;
         var avgstartsal = 50600; //average starting salary
         var nommonsal = 0.0031; //nominal monthly salary increase
@@ -421,7 +421,7 @@
 					<div class="desc">
 					    <p style="color:#002060"><strong>Use the Slider Below to Adjust the Percent of Life Pledgers.</strong></p>
 					    <div class="lifecontainer">
-					      <input type="range" min="1" max="99.5" value="15" class="slider" id="liferate" onchange="drawChart()">
+					      <input type="range" min="1" max="99.5" value="10" class="slider" id="liferate" onchange="drawChart()">
 					      <p>Value: <span id="demo"></span> % of Life Pledgers</p>
 					    </div>
 					    <div class="center0" id="curve_chart" style="width: 900px; height: 500px"></div>
