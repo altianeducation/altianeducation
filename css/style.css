@@ -1662,11 +1662,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .row-pb-md {
-  padding-bottom: 4em !important;
+  padding-bottom: 0em !important;
 }
 
 .row-pb-sm {
-  padding-bottom: 2em !important;
+  padding-bottom: 0em !important;
 }
 
 .fh5co-loader {
