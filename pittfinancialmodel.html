@@ -222,7 +222,7 @@
       function finance2(incohortsz, grantamtperstd, progrmalumcontrib, prcntcontrib10, prcntcontrib10post, anncohortgrwth, annalumcontrib, annuunivcontrib, maxpopsz) {
 
       	//var incohortsz = 100;
-        var alumnicontribution = "Yes";
+        var alumnicontribution = "No";
         var univfundpost3yr = "No";
         //var grantamtperstd = 10000.00;
         //var progrmalumcontrib = 100.00;
@@ -267,6 +267,11 @@
 		if (x>36) {
 			c=0
 		}
+		  
+		if (x<13 && alumnicontribution="No") {
+			d=0
+		}
+		  
           }
           if ((x-9) % 12 === 0){
             	e = -grantamtperstd*cohort[Math.ceil(x/12)];
