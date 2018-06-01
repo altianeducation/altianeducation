@@ -269,8 +269,10 @@
 		}
 		  
           }
-	 
-		
+	  if (x<13 && firstyearalumnicontribution==0) {
+			d=0;
+		} 
+	  	
           if ((x-9) % 12 === 0){
             	e = -grantamtperstd*cohort[Math.ceil(x/12)];
         	}
