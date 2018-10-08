@@ -1786,4 +1786,14 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 46%;
     padding: 10px;
 }
+
+#leftcontact {
+  float: left;
+  width: 30%;
+  overflow: hidden;
+}
+
+#rightcontact {
+  overflow: hidden;
+}
 /*# sourceMappingURL=style.css.map */
