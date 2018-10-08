@@ -1787,7 +1787,7 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 10px;
 }
 
-#leftcontact {
+.fh5co-contact-info {
   float: left;
   width: 30%;
   overflow: hidden;
